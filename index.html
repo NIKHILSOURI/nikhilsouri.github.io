@@ -1,41 +1,409 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Yalamati Nikhil Souri – Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Official portfolio of Yalamati Nikhil Souri (Y Nikhil Souri).">
-  <!-- Point search engines to the real portfolio URL -->
-  <link rel="canonical" href="https://nikhilsouri.github.io/PERSONAL-WEBPAGE/">
-  <!-- Simple redirect for humans and bots -->
-  <meta http-equiv="refresh" content="0; url=https://nikhilsouri.github.io/PERSONAL-WEBPAGE/">
-  <!-- JSON-LD for extra clarity -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Yalamati Nikhil Souri",
-    "alternateName": ["Y Nikhil Souri", "Nikhil Souri"],
-    "url": "https://nikhilsouri.github.io/",
-    "sameAs": [
-      "https://github.com/nikhilsouri",
-      "https://nikhilsouri.github.io/PERSONAL-WEBPAGE/"
-    ]
-  }
-  </script>
-  <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 2rem; }
-    .card { max-width: 680px; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
-    h1 { margin-top: 0; }
-    .btn { display: inline-block; padding: 12px 16px; border-radius: 8px; text-decoration: none; border: 1px solid #e5e7eb; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Yalamati Nikhil Souri</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon (optional) -->
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
 </head>
 <body>
-  <div class="card">
-    <h1>Yalamati Nikhil Souri</h1>
-    <p>Taking you to my portfolio…</p>
-    <p><a class="btn" href="https://nikhilsouri.github.io/PERSONAL-WEBPAGE/">Go to Portfolio</a></p>
-    <p style="opacity:.7">If you’re not redirected automatically, click the button above.</p>
+  <header class="site-header" id="header">
+    <div class="nav container">
+      <a class="brand" href="#home">
+        <span class="brand__dot"></span>
+        <span class="brand__text">YNS</span>
+      </a>
+
+      <nav class="nav__menu" id="myNavMenu">
+        <a href="#home" class="nav__link active-link">Home</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#education" class="nav__link">Education</a>
+        <a href="#experience" class="nav__link">Experience</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#contact" class="nav__link">Contact</a>
+      </nav>
+
+      <div class="nav__cta">
+        <a class="btn btn--ghost" href="RESUME SWEDEN.pdf" download>
+          Download CV <i class="uil uil-file-alt"></i>
+        </a>
+        <button class="nav__toggle" aria-label="Toggle menu" onclick="myMenuFunction()">
+          <i class="uil uil-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====== HERO ====== -->
+    <section class="section hero" id="home">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Hello, I’m</p>
+          <h1 class="hero__title">Yalamati Nikhil Souri</h1>
+          
+          <p class="hero__typed"><span class="typedText"></span></p>
+          <p class="hero__desc">
+            Final‑year Computer Science student pursuing a dual degree at
+            Blekinge Institute of Technology (Sweden) and JNTU College of
+            Engineering (India). I enjoy building reliable backend services,
+            working with C++/Python, and applying cloud & CI/CD best practices.
+          </p>
+          <div class="hero__actions">
+            <a class="btn" href="#contact">Hire Me</a>
+            <a class="btn btn--ghost" href="RESUME SWEDEN.pdf" download>Download CV</a>
+          </div>
+          <div class="socials">
+            <a class="social" href="https://www.linkedin.com/in/nikhil-souri" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="uil uil-linkedin"></i></a>
+            <a class="social" href="https://github.com/NIKHILSOURI" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="uil uil-github"></i></a>
+            <a class="social" href="https://www.instagram.com/nikhil_souri" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="uil uil-instagram"></i></a>
+          </div>
+        </div>
+        <div class="hero__image-wrap">
+          <div class="avatar">
+            <!-- Circle portrait placeholder; replace src with your professional photo if available -->
+            <img src="assets/images/avatar.jpg" alt="Profile photo of Yalamati Nikhil Souri" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== ABOUT ====== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2>About Me</h2>
+          <p class="section__tagline">A quick snapshot of who I am</p>
+        </div>
+        <div class="about__grid">
+          <div class="card about__card">
+            <h3 class="card__title">My Introduction</h3>
+            <p class="card__body">
+              I build backend systems and practical tools that solve real problems.
+              Across internships at Accenture and Bluestock and projects like an LMS portal and research on blink‑based cognitive load detection,
+              I’ve developed a strong foundation in C++/Python, RESTful design, Linux, and CI/CD.
+              I value clarity, performance, and clean code.
+            </p>
+          </div>
+          <div class="card about__facts">
+            <div class="facts__item">
+              <span class="facts__label">Location</span>
+              <span class="facts__value">Karlskrona, Sweden</span>
+            </div>
+            <div class="facts__item">
+              <span class="facts__label">Email</span>
+              <a class="facts__value link" href="mailto:mymedia.yns@gmail.com">mymedia.yns@gmail.com</a>
+            </div>
+            <div class="facts__item">
+              <span class="facts__label">Graduation</span>
+              <span class="facts__value">2026</span>
+            </div>
+            <div class="facts__item">
+              <span class="facts__label">Interests</span>
+              <span class="facts__value">Backend, DevOps, Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SKILLS ====== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head">
+          <h2>Skills</h2>
+          <p class="section__tagline">What I work with day‑to‑day</p>
+        </div>
+
+        <div class="skills__grid">
+          <div class="card">
+            <h3 class="card__title">Languages</h3>
+            <div class="bar">
+              <span>C/C++</span>
+              <div class="bar__track"><div class="bar__fill" style="--pct:90%"></div></div>
+            </div>
+            <div class="bar">
+              <span>Python</span>
+              <div class="bar__track"><div class="bar__fill" style="--pct:85%"></div></div>
+            </div>
+            <div class="bar">
+              <span>Java</span>
+              <div class="bar__track"><div class="bar__fill" style="--pct:70%"></div></div>
+            </div>
+            <div class="bar">
+              <span>JavaScript</span>
+              <div class="bar__track"><div class="bar__fill" style="--pct:70%"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">Web & Tools</h3>
+            <div class="chips">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">Node.js</span>
+              <span class="chip">Linux</span>
+              <span class="chip">Git</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Kubernetes</span>
+            </div>
+          </div>
+
+            <div class="card">
+              <h3 class="card__title">Core CS</h3>
+              <div class="chips">
+                <span class="chip">OOP</span>
+                <span class="chip">DSA</span>
+                <span class="chip">DBMS</span>
+                <span class="chip">Operating Systems</span>
+                <span class="chip">Computer Networks</span>
+                <span class="chip">Software Engineering</span>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== EDUCATION (TIMELINE) ====== -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section__head">
+          <h2>Education</h2>
+          <p class="section__tagline">Formal academics</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h3>B.Sc. in Computer Science</h3>
+              <p class="muted">Blekinge Institute of Technology, Karlskrona, Sweden • 2025 – 2026 (Pursuing)</p>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h3>B.Tech in CSE</h3>
+              <p class="muted">JNTU College of Engineering, Anantapur, India • 2022 – 2026 (Pursuing)</p>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h3>Intermediate (MPC)</h3>
+              <p class="muted">Narayana Junior College, Anantapur • 2020 – 2022 • 70.8%</p>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h3>SSC</h3>
+              <p class="muted">Bhashyam Public School, Anantapur • 2019 – 2020 • GPA: 10.0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== EXPERIENCE (TIMELINE) ====== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section__head">
+          <h2>Experience</h2>
+          <p class="section__tagline">Internships & roles</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h3>Associate Software Engineer Intern – Accenture India</h3>
+              <p class="muted">May 2025 – July 2025 • On‑site</p>
+              <ul class="list">
+                <li>Worked on Rapid Data Loader (RDL) for streamlined data migration.</li>
+                <li>Supported SAP ERP deployment through testing and on‑site collaboration.</li>
+              </ul>
+              <a class="link" href="https://drive.google.com/file/d/1e_GGj6yGgubaQDFAwuJ89yw1RYdsKSZJ/view" target="_blank" rel="noreferrer">Click here</a>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h3>SDE Intern – Bluestock</h3>
+              <p class="muted">Apr 2025 – May 2025 • Remote</p>
+              <ul class="list">
+                <li>Built scalable backend APIs with Node.js emphasizing performance and security.</li>
+                <li>Contributed to IPO Web App features and integration across the stack.</li>
+              </ul>
+              <a class="link" href="https://drive.google.com/file/d/19Y6luL2K2dFC4Ui4IGdiPRRCDachsZoA/view" target="_blank" rel="noreferrer">Click here</a>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h3>Intern Instructor – TICT Computers</h3>
+              <p class="muted">Jun 2023 – Jan 2024 • On‑site</p>
+              <ul class="list">
+                <li>Taught C and Java fundamentals with hands‑on labs.</li>
+              </ul>
+              <a class="link" href="https://drive.google.com/file/d/1rxdrLaGClo1W-f4oG4SkPvlKqXAunkde/view" target="_blank" rel="noreferrer">Click here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PROJECTS ====== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head">
+          <h2>Projects</h2>
+          <p class="section__tagline">Selected work</p>
+        </div>
+
+        <div class="cards">
+          <article class="card project">
+            <div class="project__head">
+              <h3>Blink‑Based Cognitive Load Detection</h3>
+              <span class="badge">Research</span>
+            </div>
+            <p class="card__body">
+              Built a lightweight EAR/MediaPipe pipeline to extract blink features and showed that longer neutral baselines
+              improve feature stability across controlled (RT‑BENE) and noisy (NTHU‑DDD/HUST‑LEBW) videos.
+            </p>
+            <div class="project__actions">
+              <a class="btn btn--ghost" target="_blank" rel="noreferrer" href="https://github.com/NIKHILSOURI/Blink-Detection-in-Noisy-Environments"><i class="uil uil-github"></i> Code</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project__head">
+              <h3>Faculty LMS Portal</h3>
+              <span class="badge">Web App</span>
+            </div>
+            <p class="card__body">
+              A web application to streamline attendance across departments with secure HOD account creation and management.
+            </p>
+            <div class="project__actions">
+              <a class="btn btn--ghost" target="_blank" rel="noreferrer" href="https://github.com/NIKHILSOURI/leave_system"><i class="uil uil-github"></i> Code</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project__head">
+              <h3>Web Development Projects</h3>
+              <span class="badge">Portfolio</span>
+            </div>
+            <p class="card__body">A set of production‑ready promotional websites.</p>
+            <div class="project__links">
+              <a class="link" href="https://tictcomputers.onrender.com" target="_blank" rel="noreferrer">TICT Computers</a>
+              <a class="link" href="https://ching-chong.netlify.app" target="_blank" rel="noreferrer">Friends Webpage</a>
+              <a class="link" href="https://collegeday2025.netlify.app" target="_blank" rel="noreferrer">College Fest</a>
+              <a class="link" href="https://race2k25.netlify.app" target="_blank" rel="noreferrer">Technical Symposium</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CERTIFICATIONS ====== -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section__head">
+          <h2>Certifications</h2>
+          <p class="section__tagline">Verified credentials</p>
+        </div>
+
+        <ul class="list list--links two-col">
+          <li><a class="link" target="_blank" rel="noreferrer" href="https://drive.google.com/file/d/1x9EngoAjtyLAbFbbhhDQijmeFEYBCh84/view">Learning Linux for LFCA — Coursera</a></li>
+          <li><a class="link" target="_blank" rel="noreferrer" href="https://drive.google.com/file/d/1ZNHHU4ikacaDiFLoCYyfE5CmzvdNJJp4/view">ChatGPT106: How to Use ChatGPT in Education — edX</a></li>
+          <li><a class="link" target="_blank" rel="noreferrer" href="https://drive.google.com/file/d/13Z-OykKTBioBJb27yKOyNc3TyKxBdsya/view">Python Basics for Data Science — IBM (edX)</a></li>
+          <li><a class="link" target="_blank" rel="noreferrer" href="https://drive.google.com/file/d/1dOuj4p5uAbZCvMGDQPIRrLGRo9moPxk5/view">Databases: Relational Databases & SQL — edX</a></li>
+          <li><a class="link" target="_blank" rel="noreferrer" href="https://drive.google.com/file/d/1JuB_yy2NSEvJ-gfttmXkWENSa1cx574j/view">HTML5 & CSS Fundamentals — edX</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== SEMINARS & PUBLICATIONS ====== -->
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section__head">
+          <h2>Seminars & Publications</h2>
+          <p class="section__tagline">Talks, webinars and papers</p>
+        </div>
+
+        <ul class="list list--links">
+          <li>
+            <strong>Text Classification Performance in NLP — NCSRINIET 2024.</strong>
+            <a class="link" target="_blank" rel="noreferrer" href="https://drive.google.com/file/d/1q0qTA8XVnM37csSJDZa_yiAei4Y0UZsT/view?usp=drive_link">View</a>
+          </li>
+          <li>
+            <strong>Webinar on Cyber Security.</strong>
+            <a class="link" target="_blank" rel="noreferrer" href="https://drive.google.com/file/d/1mPT_3b9EZvYpuRYxx3PKid3szv9Dz_kM/view?usp=drive_link">View</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== CONTACT ====== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section__head">
+      <h2>Contact</h2>
+      <p class="section__tagline">I’d love to hear about your project</p>
+    </div>
+
+    <div class="contact__grid">
+      <div class="card contact__card">
+        <h3 class="card__title">Reach Me</h3>
+        <p><i class="uil uil-envelope"></i> 
+          <a class="link" href="mailto:mymedia.yns@gmail.com">mymedia.yns@gmail.com</a>
+        </p>
+        <p><i class="uil uil-phone"></i> 
+          <a class="link" href="tel:+918519980985">+91 85199 80985</a>
+        </p>
+        <p><i class="uil uil-map-marker"></i> Karlskrona, Sweden</p>
+      </div>
+    </div>
   </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <p>© <span id="year"></span> Yalamati Nikhil Souri</p>
+      <div class="footer__links">
+        <a class="link" href="#home">Home</a>
+        <a class="link" href="#about">About</a>
+        <a class="link" href="#projects">Projects</a>
+        <a class="link" href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor scripts -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- App script -->
+  <script src="main.js"></script>
 </body>
 </html>
