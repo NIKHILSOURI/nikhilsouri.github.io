@@ -309,57 +309,154 @@
     </section>
 
     <!-- ====== PROJECTS ====== -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section__head">
-          <h2>Projects</h2>
-          <p class="section__tagline">Selected work</p>
+   <!-- ====== PROJECTS ====== -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section__head">
+      <h2>Projects</h2>
+      <p class="section__tagline">Selected work</p>
+    </div>
+
+    <div class="cards">
+
+      <!-- Project 1 -->
+      <article class="card project">
+        <div class="project__head">
+          <h3>Blink-Based Cognitive Load Detection under Noisy Visual Conditions</h3>
+          <span class="badge">AI / Research</span>
         </div>
-
-        <div class="cards">
-          <article class="card project">
-            <div class="project__head">
-              <h3>Blink‑Based Cognitive Load Detection</h3>
-              <span class="badge">Research</span>
-            </div>
-            <p class="card__body">
-              Built a lightweight EAR/MediaPipe pipeline to extract blink features and showed that longer neutral baselines
-              improve feature stability across controlled (RT‑BENE) and noisy (NTHU‑DDD/HUST‑LEBW) videos.
-            </p>
-            <div class="project__actions">
-              <a class="btn btn--ghost" target="_blank" rel="noreferrer" href="https://github.com/NIKHILSOURI/Blink-Detection-in-Noisy-Environments"><i class="uil uil-github"></i> Code</a>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="project__head">
-              <h3>Faculty LMS Portal</h3>
-              <span class="badge">Web App</span>
-            </div>
-            <p class="card__body">
-              A web application to streamline attendance across departments with secure HOD account creation and management.
-            </p>
-            <div class="project__actions">
-              <a class="btn btn--ghost" target="_blank" rel="noreferrer" href="https://github.com/NIKHILSOURI/leave_system"><i class="uil uil-github"></i> Code</a>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="project__head">
-              <h3>Web Development Projects</h3>
-              <span class="badge">Portfolio</span>
-            </div>
-            <p class="card__body">A set of production‑ready promotional websites.</p>
-            <div class="project__links">
-              <a class="link" href="https://tictcomputers.onrender.com" target="_blank" rel="noreferrer">TICT Computers</a>
-              <a class="link" href="https://ching-chong.netlify.app" target="_blank" rel="noreferrer">Friends Webpage</a>
-              <a class="link" href="https://collegeday2025.netlify.app" target="_blank" rel="noreferrer">College Fest</a>
-              <a class="link" href="https://race2k25.netlify.app" target="_blank" rel="noreferrer">Technical Symposium</a>
-            </div>
-          </article>
+        <p class="card__body">
+          Built an AI pipeline using MediaPipe and EAR metrics for blink-based cognitive load detection.
+          Conducted academic research at BTH Sweden, testing robustness under noisy visual conditions.
+        </p>
+        <div class="project__actions">
+          <a class="btn btn--ghost" target="_blank" rel="noreferrer"
+            href="https://github.com/NIKHILSOURI/Blink-Detection-in-Noisy-Environments">
+            <i class="uil uil-github"></i> Code
+          </a>
         </div>
-      </div>
-    </section>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="card project">
+        <div class="project__head">
+          <h3>DevOps Mini Project – ML Inference Deployment using Docker and Jenkins CI/CD</h3>
+          <span class="badge">DevOps / Cloud</span>
+        </div>
+        <p class="card__body">
+          Containerized an ML inference app with Docker and deployed it on AWS EC2.
+          Automated CI/CD pipeline with Jenkins, cutting deployment time by 60%.
+        </p>
+        <div class="project__actions">
+          <a class="btn btn--ghost" target="_blank" rel="noreferrer"
+            href="https://github.com/NIKHILSOURI/DevOps-Mini-Project-">
+            <i class="uil uil-github"></i> Code
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="card project">
+        <div class="project__head">
+          <h3>AI-Powered Queue Management & Crowd Flow System</h3>
+          <span class="badge">AI / Cloud / DevOps</span>
+        </div>
+        <p class="card__body">
+          Built a real-time AI + Cloud + DevOps system for queue and crowd optimization.
+          Implemented data streaming, camera analytics, and Dockerized microservices for scalability.
+        </p>
+        <div class="project__actions">
+          <a class="btn btn--ghost" target="_blank" rel="noreferrer"
+            href="https://github.com/NIKHILSOURI/AI-Powered-Queue-Management/">
+            <i class="uil uil-github"></i> Code
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="card project">
+        <div class="project__head">
+          <h3>TICT COMPUTERS Webpage</h3>
+          <span class="badge">Full-Stack / Web</span>
+        </div>
+        <p class="card__body">
+          Developed a responsive company website with modern UI/UX and dynamic backend for course and service management.
+        </p>
+        <div class="project__actions">
+          <a class="btn btn--ghost" href="https://tictcomputers.onrender.com" target="_blank" rel="noreferrer">
+            <i class="uil uil-external-link-alt"></i> Live
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="card project">
+        <div class="project__head">
+          <h3>Friends Webpage</h3>
+          <span class="badge">Frontend / Web</span>
+        </div>
+        <p class="card__body">
+          Created a fun, interactive website to showcase friendship-themed stories and animations using HTML, CSS, and JavaScript.
+        </p>
+        <div class="project__actions">
+          <a class="btn btn--ghost" href="https://ching-chong.netlify.app" target="_blank" rel="noreferrer">
+            <i class="uil uil-external-link-alt"></i> Live
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="card project">
+        <div class="project__head">
+          <h3>College Fest Webpage</h3>
+          <span class="badge">Frontend / Web</span>
+        </div>
+        <p class="card__body">
+          Designed a responsive event management site for college festivals with schedules, registration forms, and sponsor sections.
+        </p>
+        <div class="project__actions">
+          <a class="btn btn--ghost" href="https://collegeday2025.netlify.app" target="_blank" rel="noreferrer">
+            <i class="uil uil-external-link-alt"></i> Live
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 7 -->
+      <article class="card project">
+        <div class="project__head">
+          <h3>Technical Symposium Webpage</h3>
+          <span class="badge">Frontend / Web</span>
+        </div>
+        <p class="card__body">
+          Developed an informative symposium website highlighting events, keynote speakers, and online registration.
+        </p>
+        <div class="project__actions">
+          <a class="btn btn--ghost" href="https://race2k25.netlify.app" target="_blank" rel="noreferrer">
+            <i class="uil uil-external-link-alt"></i> Live
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 8 -->
+      <article class="card project">
+        <div class="project__head">
+          <h3>Faculty LMS Portal</h3>
+          <span class="badge">Full-Stack / Web</span>
+        </div>
+        <p class="card__body">
+          Built a full-stack web app for faculty leave and attendance management using Node.js, Express.js, and MySQL.
+        </p>
+        <div class="project__actions">
+          <a class="btn btn--ghost" href="https://github.com/NIKHILSOURI/leave_system" target="_blank" rel="noreferrer">
+            <i class="uil uil-github"></i> Code
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- ====== CERTIFICATIONS ====== -->
     <section class="section" id="certifications">
