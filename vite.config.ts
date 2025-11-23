@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     // For GitHub Pages: use '/' if repo is username.github.io, otherwise use '/repo-name/'
-    // Change this if your repo name is different
-    const base = process.env.NODE_ENV === 'production' ? '/' : '/';
+    // Always use '/' for username.github.io repositories
+    const base = '/';
     return {
       base: base,
       server: {
