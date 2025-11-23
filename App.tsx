@@ -66,8 +66,8 @@ const Content = () => {
       {/* Main UI Layer - Reveal after loading */}
       {!isLoading && (
         <>
-          <main className="relative z-20 h-full w-full flex flex-col items-center justify-center p-4 pointer-events-none">
-            <div className="pointer-events-auto w-full max-w-5xl">
+          <main className="relative z-20 h-full w-full flex flex-col items-center justify-center p-2 sm:p-4 pointer-events-none overflow-y-auto">
+            <div className="pointer-events-auto w-full max-w-5xl py-4 sm:py-0">
                 <AnimatePresence mode="wait">
                 {renderSection()}
                 </AnimatePresence>
@@ -76,7 +76,7 @@ const Content = () => {
 
           <Navigation currentSection={currentSection} setSection={setCurrentSection} />
           
-          <div className="absolute bottom-4 right-6 z-20 hidden md:block text-[10px] text-slate-500 font-mono">
+          <div className="absolute bottom-4 right-4 sm:right-6 z-20 hidden md:block text-[10px] text-slate-500 font-mono">
             SYS.VER.2.0.24 // ONLINE
           </div>
         </>

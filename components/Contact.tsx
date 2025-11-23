@@ -69,9 +69,9 @@ export const Contact = () => {
 
   return (
     <Layout title="Communicate" subtitle="Establish Connection">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 mt-4 sm:mt-6 md:mt-8">
         <div>
-          <h3 className="text-2xl font-orbitron text-white mb-6">Transmission Channels</h3>
+          <h3 className="text-xl sm:text-2xl font-orbitron text-white mb-4 sm:mb-6">Transmission Channels</h3>
           <div className="space-y-6">
             <ContactCard 
                 icon={Mail} 
@@ -92,21 +92,21 @@ export const Contact = () => {
             />
           </div>
 
-          <div className="mt-12 p-6 border border-cyan-500/30 rounded-xl bg-cyan-500/5 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)] transition-shadow">
-            <p className="text-cyan-400 font-rajdhani">
+          <div className="mt-6 sm:mt-8 md:mt-12 p-4 sm:p-6 border border-cyan-500/30 rounded-xl bg-cyan-500/5 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)] transition-shadow">
+            <p className="text-cyan-400 font-rajdhani text-sm sm:text-base">
               "Open to opportunities in Backend Engineering, DevOps, and Cloud Infrastructure. Ready to deploy."
             </p>
           </div>
         </div>
 
         {/* Form */}
-        <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm relative group hover:border-cyan-500/30 transition-colors">
+        <div className="bg-white/5 border border-white/10 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm relative group hover:border-cyan-500/30 transition-colors">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan-500 opacity-50"></div>
             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-500 opacity-50"></div>
 
-            <h3 className="text-xl font-orbitron text-white mb-6 flex items-center gap-2">
-                <Send size={20} className="text-cyan-500" /> Send Message
+            <h3 className="text-lg sm:text-xl font-orbitron text-white mb-4 sm:mb-6 flex items-center gap-2">
+                <Send size={18} className="sm:w-5 sm:h-5 text-cyan-500" /> Send Message
             </h3>
             <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
@@ -203,14 +203,14 @@ const ContactCard = ({ icon: Icon, label, value, href }: any) => (
         initial={{ x: -20, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
-        className={`flex items-center gap-4 p-4 border border-white/10 rounded-xl bg-black/20 hover:bg-white/5 transition-all duration-300 group ${href ? 'cursor-pointer' : 'cursor-default'}`}
+        className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 border border-white/10 rounded-lg sm:rounded-xl bg-black/20 hover:bg-white/5 active:bg-white/10 transition-all duration-300 group touch-manipulation ${href ? 'cursor-pointer' : 'cursor-default'}`}
     >
-        <div className="p-3 bg-cyan-500/10 rounded-full text-cyan-400 group-hover:bg-cyan-500/20 group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all">
-            <Icon size={24} />
+        <div className="p-2 sm:p-3 bg-cyan-500/10 rounded-full text-cyan-400 group-hover:bg-cyan-500/20 group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all flex-shrink-0">
+            <Icon size={20} className="sm:w-6 sm:h-6" />
         </div>
-        <div>
-            <p className="text-xs text-slate-500 uppercase tracking-wider font-bold group-hover:text-slate-400">{label}</p>
-            <p className="text-lg text-white font-rajdhani font-medium group-hover:text-cyan-100">{value}</p>
+        <div className="min-w-0 flex-1">
+            <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider font-bold group-hover:text-slate-400">{label}</p>
+            <p className="text-sm sm:text-base md:text-lg text-white font-rajdhani font-medium group-hover:text-cyan-100 break-words">{value}</p>
         </div>
     </motion.a>
 );

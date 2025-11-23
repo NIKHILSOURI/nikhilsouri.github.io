@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="theme-color" content="#050b14" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>Yalamati Nikhil Souri | Galactic Portfolio</title>
     <meta name="description" content="Portfolio of Yalamati Nikhil Souri - Backend & DevOps Engineer" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,9 +29,42 @@
         overflow: hidden; /* App handles scrolling internally */
         background-color: #000;
         font-family: 'Rajdhani', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        touch-action: manipulation;
       }
       .font-orbitron {
         font-family: 'Orbitron', sans-serif;
+      }
+      /* Hide scrollbar for navigation */
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      /* Touch-friendly interactions */
+      @media (hover: none) and (pointer: coarse) {
+        button, a {
+          -webkit-tap-highlight-color: rgba(0, 240, 255, 0.2);
+        }
+      }
+      /* Responsive text sizing */
+      @media (max-width: 640px) {
+        html {
+          font-size: 14px;
+        }
+      }
+      @media (min-width: 641px) and (max-width: 1024px) {
+        html {
+          font-size: 15px;
+        }
+      }
+      @media (min-width: 1025px) {
+        html {
+          font-size: 16px;
+        }
       }
     </style>
   </head>
