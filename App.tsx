@@ -66,8 +66,15 @@ const Content = () => {
       {/* Main UI Layer - Reveal after loading */}
       {!isLoading && (
         <>
-          <main className="relative z-20 h-full w-full flex flex-col items-center p-2 sm:p-4 pointer-events-none overflow-y-auto pb-16 sm:pb-20">
-            <div className="pointer-events-auto w-full max-w-5xl py-4 sm:py-6 md:py-8 min-h-full flex items-center">
+          <main className="relative z-20 h-full w-full flex flex-col items-center p-2 sm:p-4 pointer-events-none overflow-hidden" style={{ paddingBottom: 'calc(64px + 0.5rem)' }}>
+            <style>{`
+              @media (min-width: 640px) {
+                main {
+                  padding-bottom: calc(80px + 1rem) !important;
+                }
+              }
+            `}</style>
+            <div className="pointer-events-auto w-full max-w-5xl h-full flex flex-col py-2 sm:py-4 md:py-6 min-w-0">
                 <AnimatePresence mode="wait">
                 {renderSection()}
                 </AnimatePresence>

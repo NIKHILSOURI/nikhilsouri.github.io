@@ -75,6 +75,21 @@
           font-size: 16px;
         }
       }
+      /* Zoom compatibility - ensure content stays within viewport */
+      * {
+        box-sizing: border-box;
+      }
+      /* Prevent content overflow on zoom */
+      img, svg, video, canvas, audio, iframe, embed, object {
+        max-width: 100%;
+        height: auto;
+      }
+      /* Ensure proper scrolling on all zoom levels */
+      @media (min-resolution: 80dpi) and (max-resolution: 150dpi) {
+        body {
+          overflow-x: hidden;
+        }
+      }
     </style>
   </head>
   <body>

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Section } from '../types';
-import { Home, User, Cpu, Briefcase, FolderGit2, Mail, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Home, User, Cpu, Briefcase, FolderGit2, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useSound } from './SoundManager';
 
 interface NavigationProps {
@@ -19,109 +19,52 @@ const navItems = [
 ];
 
 export const Navigation: React.FC<NavigationProps> = ({ currentSection, setSection }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const { playHover, playClick } = useSound();
 
   const handleNavClick = (id: Section) => {
     playClick();
     setSection(id);
-    setIsOpen(false);
   };
-
-  const toggleNav = () => {
-    playClick();
-    setIsOpen(!isOpen);
-  };
-
-  const currentItem = navItems.find(item => item.id === currentSection);
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-[100] w-full flex justify-center px-2 sm:px-4 pb-2 sm:pb-4 pointer-events-none" aria-label="Main navigation">
-      <div className="relative max-w-lg w-full pointer-events-auto">
-        {/* Collapsed State - Small Icon */}
-        <AnimatePresence mode="wait">
-          {!isOpen && (
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              onClick={toggleNav}
-              className="w-full backdrop-blur-md bg-black/90 border-t-2 border-cyan-500/30 rounded-t-xl sm:rounded-t-2xl py-2 sm:py-3 shadow-[0_-4px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(0,240,255,0.3)] flex items-center justify-center gap-2 touch-manipulation hover:bg-black/95 transition-colors"
+      <div className="relative backdrop-blur-md bg-black/90 border-t-2 border-cyan-500/30 rounded-t-xl sm:rounded-t-2xl rounded-b-none px-1 sm:px-2 py-2 sm:py-3 shadow-[0_-4px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(0,240,255,0.3)] flex justify-between items-center overflow-x-auto overflow-y-hidden scrollbar-hide pointer-events-auto max-w-lg w-full">
+        {/* Decorative holographic lines */}
+        <div className="absolute top-0 left-2 sm:left-4 right-2 sm:right-4 h-[1px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-50"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-30"></div>
+        
+        {navItems.map((item) => {
+          const isActive = currentSection === item.id;
+          return (
+            <button
+              key={item.id}
+              onClick={() => handleNavClick(item.id)}
+              onMouseEnter={() => playHover()}
+              className={`relative group flex flex-col items-center justify-center min-w-[48px] sm:min-w-[56px] h-12 sm:h-14 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation ${
+                isActive ? 'text-cyan-400' : 'text-slate-400 hover:text-white active:text-cyan-300'
+              }`}
             >
-              {currentItem && (
-                <>
-                  <currentItem.icon size={20} className="text-cyan-400" />
-                  <span className="text-sm font-orbitron text-cyan-400 uppercase tracking-wider">{currentItem.label}</span>
-                </>
+              {isActive && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-cyan-500/10 rounded-lg sm:rounded-xl border border-cyan-500/30 shadow-[0_0_15px_rgba(0,240,255,0.4)]"
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
               )}
-              <Menu size={20} className="text-slate-400 ml-auto" />
-            </motion.button>
-          )}
-        </AnimatePresence>
+              
+              {/* Hover Glow Effect for Non-Active Items */}
+              {!isActive && (
+                 <div className="absolute inset-0 bg-white/5 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_10px_rgba(255,255,255,0.1)]"></div>
+              )}
 
-        {/* Expanded State - Full Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.2 }}
-              className="backdrop-blur-md bg-black/90 border-t-2 border-cyan-500/30 rounded-t-xl sm:rounded-t-2xl px-1 sm:px-2 py-2 sm:py-3 shadow-[0_-4px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(0,240,255,0.3)]"
-            >
-              {/* Close Button */}
-              <div className="flex justify-end mb-2">
-                <button
-                  onClick={toggleNav}
-                  className="p-1 rounded-lg hover:bg-white/10 transition-colors touch-manipulation"
-                  aria-label="Close navigation"
-                >
-                  <X size={18} className="text-slate-400" />
-                </button>
-              </div>
-
-              {/* Navigation Items */}
-              <div className="flex justify-between items-center overflow-x-auto overflow-y-hidden scrollbar-hide">
-                {/* Decorative holographic lines */}
-                <div className="absolute top-0 left-2 sm:left-4 right-2 sm:right-4 h-[1px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-50"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-30"></div>
-                
-                {navItems.map((item) => {
-                  const isActive = currentSection === item.id;
-                  return (
-                    <button
-                      key={item.id}
-                      onClick={() => handleNavClick(item.id)}
-                      onMouseEnter={() => playHover()}
-                      className={`relative group flex flex-col items-center justify-center min-w-[48px] sm:min-w-[56px] h-12 sm:h-14 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation ${
-                        isActive ? 'text-cyan-400' : 'text-slate-400 hover:text-white active:text-cyan-300'
-                      }`}
-                    >
-                      {isActive && (
-                        <motion.div
-                          layoutId="activeTab"
-                          className="absolute inset-0 bg-cyan-500/10 rounded-lg sm:rounded-xl border border-cyan-500/30 shadow-[0_0_15px_rgba(0,240,255,0.4)]"
-                          initial={false}
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        />
-                      )}
-                      
-                      {/* Hover Glow Effect for Non-Active Items */}
-                      {!isActive && (
-                         <div className="absolute inset-0 bg-white/5 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_10px_rgba(255,255,255,0.1)]"></div>
-                      )}
-
-                      <item.icon size={18} className={`sm:w-5 sm:h-5 z-10 mb-0.5 sm:mb-1 transition-transform duration-300 group-hover:scale-110 group-active:scale-95 ${isActive ? 'drop-shadow-[0_0_8px_rgba(0,240,255,0.8)]' : 'group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]'}`} />
-                      <span className="text-[9px] sm:text-[10px] font-orbitron uppercase tracking-wider sm:tracking-widest z-10 opacity-70 group-hover:opacity-100 transition-opacity">
-                        {item.label}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              <item.icon size={18} className={`sm:w-5 sm:h-5 z-10 mb-0.5 sm:mb-1 transition-transform duration-300 group-hover:scale-110 group-active:scale-95 ${isActive ? 'drop-shadow-[0_0_8px_rgba(0,240,255,0.8)]' : 'group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]'}`} />
+              <span className="text-[9px] sm:text-[10px] font-orbitron uppercase tracking-wider sm:tracking-widest z-10 opacity-70 group-hover:opacity-100 transition-opacity">
+                {item.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
     </nav>
   );

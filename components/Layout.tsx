@@ -21,10 +21,10 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, subtitle }) => 
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
       transition={{ duration: 0.5 }}
-      className="w-full max-w-5xl mx-auto min-h-0 flex flex-col px-2 sm:px-4"
+      className="w-full max-w-5xl mx-auto h-full flex flex-col px-2 sm:px-4"
     >
-      {/* Header Bar */}
-      <div className="flex items-end border-b border-white/10 pb-3 sm:pb-4 mb-4 sm:mb-6 relative flex-shrink-0">
+      {/* Sticky Header Bar */}
+      <div className="sticky top-0 z-30 bg-[#050b14]/95 backdrop-blur-sm border-b border-white/10 pb-3 sm:pb-4 mb-4 sm:mb-6 relative flex-shrink-0 flex items-end">
         <div className="absolute -bottom-[1px] left-0 w-16 sm:w-24 h-[2px] sm:h-[3px] bg-cyan-400 shadow-[0_0_10px_#00f0ff]"></div>
         <div className="flex-1 min-w-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-orbitron font-bold text-white uppercase tracking-wide sm:tracking-wider drop-shadow-[0_2px_10px_rgba(255,255,255,0.3)] break-words">
@@ -44,7 +44,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, subtitle }) => 
       </div>
 
       {/* Content Area with custom scroll */}
-      <div className="flex-1 min-h-0 overflow-y-auto pr-1 sm:pr-2 custom-scrollbar relative">
+      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden pr-1 sm:pr-2 custom-scrollbar relative">
         {children}
       </div>
     </motion.div>

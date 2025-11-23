@@ -5,7 +5,7 @@ import { SOCIAL_LINKS } from '../constants';
 
 export const Hero = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full text-center relative px-4 py-4 sm:py-8 md:py-12">
+    <div className="flex flex-col items-center justify-center w-full text-center relative px-4 py-4 sm:py-8 md:py-12 min-h-full min-w-0">
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}

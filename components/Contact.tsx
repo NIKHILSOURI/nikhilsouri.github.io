@@ -186,7 +186,7 @@ export const Contact = () => {
                     ) : (
                         <>
                             <Send size={18} />
-                            Transmit
+                    Transmit
                         </>
                     )}
                 </button>
