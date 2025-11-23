@@ -38,7 +38,7 @@ const Content = () => {
   };
 
   return (
-    <div className="w-full h-screen relative bg-[#050b14] text-white overflow-hidden selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="w-full h-screen relative bg-[#050b14] text-white overflow-hidden selection:bg-cyan-500/30 selection:text-cyan-200 overscroll-none">
       
       {/* Loading Overlay */}
       <AnimatePresence>
@@ -66,8 +66,8 @@ const Content = () => {
       {/* Main UI Layer - Reveal after loading */}
       {!isLoading && (
         <>
-          <main className="relative z-20 h-full w-full flex flex-col items-center justify-center p-2 sm:p-4 pointer-events-none overflow-y-auto">
-            <div className="pointer-events-auto w-full max-w-5xl py-4 sm:py-0">
+          <main className="relative z-20 h-full w-full flex flex-col items-center p-2 sm:p-4 pointer-events-none overflow-y-auto pb-20 sm:pb-24 md:pb-28">
+            <div className="pointer-events-auto w-full max-w-5xl py-4 sm:py-6 md:py-8 min-h-full flex items-center">
                 <AnimatePresence mode="wait">
                 {renderSection()}
                 </AnimatePresence>

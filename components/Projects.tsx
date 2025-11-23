@@ -7,7 +7,7 @@ import { Github, Globe, ExternalLink } from 'lucide-react';
 export const Projects = () => {
   return (
     <Layout title="Project Database" subtitle="Selected Works">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 pb-12 sm:pb-16 md:pb-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 pb-4 sm:pb-6 md:pb-8">
         {PROJECTS_DATA.map((project, idx) => (
           <motion.div
             key={idx}

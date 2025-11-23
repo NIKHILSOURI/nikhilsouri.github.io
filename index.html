@@ -24,6 +24,15 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #00a0aa;
       }
+      /* Smooth scrolling */
+      * {
+        scroll-behavior: smooth;
+      }
+      /* Prevent content from being cut off */
+      .custom-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: #00f0ff #050b14;
+      }
       body {
         margin: 0;
         overflow: hidden; /* App handles scrolling internally */
