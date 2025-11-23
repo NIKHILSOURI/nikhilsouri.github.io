@@ -66,7 +66,7 @@ const Content = () => {
       {/* Main UI Layer - Reveal after loading */}
       {!isLoading && (
         <>
-          <main className="relative z-20 h-full w-full flex flex-col items-center p-2 sm:p-4 pointer-events-none overflow-y-auto pb-[72px] sm:pb-[96px]">
+          <main className="relative z-20 h-full w-full flex flex-col items-center p-2 sm:p-4 pointer-events-none overflow-y-auto pb-16 sm:pb-20">
             <div className="pointer-events-auto w-full max-w-5xl py-4 sm:py-6 md:py-8 min-h-full flex items-center">
                 <AnimatePresence mode="wait">
                 {renderSection()}
