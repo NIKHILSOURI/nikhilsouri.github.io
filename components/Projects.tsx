@@ -1,19 +1,116 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout } from './Layout';
-import { PROJECTS_DATA } from '../constants';
+import { PROJECTS_DATA, SOCIAL_LINKS } from '../constants';
+import { Project } from '../types';
 import { motion } from 'framer-motion';
-import { Github, Globe, ExternalLink } from 'lucide-react';
+import { Github, Globe, ExternalLink, Loader2 } from 'lucide-react';
+
+interface GitHubRepo {
+  id: number;
+  name: string;
+  description: string | null;
+  html_url: string;
+  homepage: string | null;
+  topics: string[];
+  language: string | null;
+  stargazers_count: number;
+  fork: boolean;
+}
 
 export const Projects = () => {
+  const [projects, setProjects] = useState<Project[]>(PROJECTS_DATA);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchGitHubRepos = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        
+        // Extract username from GitHub URL
+        const githubUrl = SOCIAL_LINKS.github;
+        const username = githubUrl.split('/').pop() || 'NIKHILSOURI';
+        
+        // Fetch repositories from GitHub API
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100&type=all`);
+        
+        if (!response.ok) {
+          throw new Error(`GitHub API error: ${response.status}`);
+        }
+        
+        const repos: GitHubRepo[] = await response.json();
+        
+        // Filter out forks and convert to Project format
+        const githubProjects: Project[] = repos
+          .filter(repo => !repo.fork && repo.name !== 'nikhilsouri.github.io') // Exclude forks and portfolio repo
+          .map(repo => {
+            // Determine category from topics or language
+            let category = 'Development';
+            if (repo.topics.length > 0) {
+              const firstTopic = repo.topics[0];
+              if (firstTopic.includes('ai') || firstTopic.includes('ml')) category = 'AI / ML';
+              else if (firstTopic.includes('web') || firstTopic.includes('frontend') || firstTopic.includes('backend')) category = 'Full Stack';
+              else if (firstTopic.includes('devops') || firstTopic.includes('docker') || firstTopic.includes('kubernetes')) category = 'DevOps / Cloud';
+              else if (firstTopic.includes('game')) category = 'Game Dev';
+              else category = firstTopic.charAt(0).toUpperCase() + firstTopic.slice(1);
+            } else if (repo.language) {
+              if (repo.language === 'Python') category = 'AI / Research';
+              else if (repo.language === 'JavaScript' || repo.language === 'TypeScript') category = 'Full Stack';
+              else category = repo.language;
+            }
+            
+            return {
+              title: repo.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+              category: category,
+              description: repo.description || 'No description available',
+              link: repo.html_url,
+              live: repo.homepage || undefined
+            };
+          });
+        
+        // Merge static projects with GitHub projects, avoiding duplicates by title
+        const staticProjectTitles = new Set(PROJECTS_DATA.map(p => p.title.toLowerCase()));
+        const newGitHubProjects = githubProjects.filter(
+          p => !staticProjectTitles.has(p.title.toLowerCase())
+        );
+        
+        // Combine: static projects first, then GitHub projects
+        setProjects([...PROJECTS_DATA, ...newGitHubProjects]);
+      } catch (err) {
+        console.error('Error fetching GitHub repos:', err);
+        setError('Failed to load GitHub projects. Showing static projects only.');
+        setProjects(PROJECTS_DATA); // Fallback to static projects
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchGitHubRepos();
+  }, []);
+
   return (
     <Layout title="Project Database" subtitle="Selected Works">
+      {error && (
+        <div className="mb-4 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg text-yellow-400 text-sm font-rajdhani">
+          {error}
+        </div>
+      )}
+      
+      {isLoading && (
+        <div className="mb-4 p-3 bg-cyan-500/10 border border-cyan-500/30 rounded-lg text-cyan-400 text-sm font-rajdhani flex items-center gap-2">
+          <Loader2 className="w-4 h-4 animate-spin" />
+          <span>Loading additional projects from GitHub...</span>
+        </div>
+      )}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 pb-4 sm:pb-6 md:pb-8">
-        {PROJECTS_DATA.map((project, idx) => (
+        {projects.map((project, idx) => (
           <motion.div
-            key={idx}
+            key={project.title + idx}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: idx * 0.1 }}
+            transition={{ delay: Math.min(idx * 0.05, 1) }}
             className="group relative bg-black/60 border border-white/10 rounded-lg sm:rounded-xl overflow-hidden hover:border-cyan-500/50 active:border-cyan-500/70 transition-all duration-300 flex flex-col h-full touch-manipulation"
           >
             {/* Top decorative bar */}

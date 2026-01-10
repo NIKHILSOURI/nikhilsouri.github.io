@@ -1,4 +1,4 @@
-import { Project, Experience, Education } from './types';
+import { Project, Experience, Education, Publication } from './types';
 import { 
   Code2, 
   Server, 
@@ -131,5 +131,31 @@ export const PROJECTS_DATA: Project[] = [
     category: "Full Stack",
     description: "Web app for faculty leave/attendance using Node.js, Express, MySQL.",
     link: "https://github.com/NIKHILSOURI/leave_system"
+  }
+];
+
+export const PUBLICATIONS_DATA: Publication[] = [
+  {
+    title: "Cybersickness Risk Prediction using EEG & Symbolic XAI",
+    venue: "AIJFR",
+    date: "Dec 29, 2025",
+    type: "Paper",
+    link: "https://www.aijfr.com/research-paper.php?id=2763",
+    doi: "https://doi.org/10.63363/aijfr.2025.v06i06.2763"
+  },
+  {
+    title: "Blink-EAR Cognitive Load Detection in Noisy Environments",
+    venue: "Zenodo/BTH",
+    date: "Dec 1, 2025",
+    type: "Paper",
+    link: "https://zenodo.org/records/17683229",
+    doi: "https://doi.org/10.5281/zenodo.17683229"
+  },
+  {
+    title: "NLP Text Classification Performance",
+    venue: "NCSRINIET 2024",
+    date: "2024",
+    type: "Seminar",
+    link: "https://drive.google.com/file/d/1q0qTA8XVnM37csSJDZa_yiAei4Y0UZsT/view"
   }
 ];

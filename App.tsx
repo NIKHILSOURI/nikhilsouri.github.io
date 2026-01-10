@@ -7,6 +7,7 @@ import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Experience } from './components/Experience';
 import { Projects } from './components/Projects';
+import { Publications } from './components/Publications';
 import { Contact } from './components/Contact';
 import { Section } from './types';
 import { AnimatePresence } from 'framer-motion';
@@ -30,6 +31,8 @@ const Content = () => {
         return <Experience />;
       case Section.PROJECTS:
         return <Projects />;
+      case Section.PUBLICATIONS:
+        return <Publications />;
       case Section.CONTACT:
         return <Contact />;
       default:

@@ -4,6 +4,7 @@ export enum Section {
   SKILLS = 'SKILLS',
   EXPERIENCE = 'EXPERIENCE',
   PROJECTS = 'PROJECTS',
+  PUBLICATIONS = 'PUBLICATIONS',
   CONTACT = 'CONTACT'
 }
 
@@ -29,4 +30,13 @@ export interface Education {
   school: string;
   period: string;
   details?: string;
+}
+
+export interface Publication {
+  title: string;
+  venue: string;
+  date: string;
+  type: 'Paper' | 'Seminar' | 'Thesis' | 'Conference';
+  link: string;
+  doi?: string;
 }

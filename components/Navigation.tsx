@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from '../types';
-import { Home, User, Cpu, Briefcase, FolderGit2, Mail } from 'lucide-react';
+import { Home, User, Cpu, Briefcase, FolderGit2, Mail, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useSound } from './SoundManager';
 
@@ -15,6 +15,7 @@ const navItems = [
   { id: Section.SKILLS, icon: Cpu, label: 'Tech' },
   { id: Section.EXPERIENCE, icon: Briefcase, label: 'Ops' },
   { id: Section.PROJECTS, icon: FolderGit2, label: 'Missions' },
+  { id: Section.PUBLICATIONS, icon: BookOpen, label: 'Research' },
   { id: Section.CONTACT, icon: Mail, label: 'Comm' },
 ];
 
