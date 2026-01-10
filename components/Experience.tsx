@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export const Experience = () => {
   return (
     <Layout title="Mission Log" subtitle="Work History">
-      <div className="relative space-y-6 sm:space-y-8 pb-4 min-w-0">
+      <div className="relative space-y-6 sm:space-y-8 pb-4 w-full max-w-full">
         {/* Timeline line - positioned relative to content, not fixed */}
         <div className="hidden sm:block absolute left-1/2 top-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-transparent opacity-30 -translate-x-1/2 pointer-events-none" style={{ height: '100%', minHeight: 'calc(100% + 2rem)' }}></div>
         <div className="block sm:hidden absolute left-4 top-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-transparent opacity-30 pointer-events-none" style={{ height: '100%', minHeight: 'calc(100% + 2rem)' }}></div>
@@ -18,17 +18,17 @@ export const Experience = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.2 }}
-            className={`relative flex flex-col sm:flex-row gap-4 sm:gap-8 min-w-0 ${idx % 2 === 0 ? 'sm:flex-row-reverse' : ''}`}
+            className={`relative flex flex-col sm:flex-row gap-4 sm:gap-8 w-full ${idx % 2 === 0 ? 'sm:flex-row-reverse' : ''}`}
           >
-            <div className="hidden sm:block w-1/2 flex-shrink-0"></div>
+            <div className="hidden sm:block w-[calc(50%-32px)] flex-shrink-0"></div>
             
             {/* Center Node - positioned relative to container */}
             <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-black border-2 border-cyan-400 rounded-full shadow-[0_0_10px_#00f0ff] z-10 flex-shrink-0" style={{ top: '0.5rem' }}></div>
 
-            <div className="w-full sm:w-1/2 pl-10 sm:pl-0 flex-shrink-0 min-w-0">
-                <div className={`bg-black/40 border border-white/10 p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl backdrop-blur-md hover:border-cyan-500/40 transition-all group ${idx % 2 === 0 ? 'sm:mr-4 md:mr-8' : 'sm:ml-4 md:ml-8'} w-full min-w-0`}>
-                    <div className="flex justify-between items-start mb-2 gap-2 min-w-0">
-                        <h3 className="text-base sm:text-lg md:text-xl font-orbitron font-bold text-white group-hover:text-cyan-400 transition-colors break-words min-w-0 flex-1">{exp.role}</h3>
+            <div className="w-full sm:w-[calc(50%-32px)] pl-10 sm:pl-0 flex-shrink-0">
+                <div className={`bg-black/40 border border-white/10 p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl backdrop-blur-md hover:border-cyan-500/40 transition-all group w-full max-w-full`}>
+                    <div className="flex justify-between items-start mb-2 gap-2 w-full">
+                        <h3 className="text-base sm:text-lg md:text-xl font-orbitron font-bold text-white group-hover:text-cyan-400 transition-colors break-words flex-1 min-w-0">{exp.role}</h3>
                         {exp.link && (
                             <a href={exp.link} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-cyan-400">
                                 <ExternalLink size={18} />

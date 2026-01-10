@@ -21,7 +21,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, subtitle }) => 
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
       transition={{ duration: 0.5 }}
-      className="w-full max-w-5xl mx-auto h-full flex flex-col px-2 sm:px-4"
+      className="w-full max-w-6xl mx-auto h-full flex flex-col px-2 sm:px-4 md:px-6"
     >
       {/* Sticky Header Bar */}
       <div className="sticky top-0 z-30 bg-[#050b14]/95 backdrop-blur-sm border-b border-white/10 pb-3 sm:pb-4 mb-4 sm:mb-6 relative flex-shrink-0 flex items-end">

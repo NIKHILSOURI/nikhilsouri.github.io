@@ -74,7 +74,7 @@ const Content = () => {
                 }
               }
             `}</style>
-            <div className="pointer-events-auto w-full max-w-5xl h-full flex flex-col py-2 sm:py-4 md:py-6 min-w-0">
+            <div className="pointer-events-auto w-full max-w-6xl h-full flex flex-col py-2 sm:py-4 md:py-6 min-w-0">
                 <AnimatePresence mode="wait">
                 {renderSection()}
                 </AnimatePresence>
