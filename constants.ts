@@ -32,6 +32,16 @@ export const SKILLS_DATA = [
 
 export const EXPERIENCE_DATA: Experience[] = [
   {
+    role: "AI R&D Engineer",
+    company: "Taste of Nordic AB / ClearCart",
+    period: "Nov 2025 – Present",
+    type: "Remote, Stockholm",
+    details: [
+      "Contributing to AI-powered automated retail checkout system development.",
+      "Supporting prototyping for multiview product modeling and item recognition."
+    ]
+  },
+  {
     role: "Associate Software Engineer Intern",
     company: "Accenture India",
     period: "May 2025 – July 2025",
