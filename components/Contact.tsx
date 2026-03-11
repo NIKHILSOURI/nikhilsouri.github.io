@@ -82,7 +82,7 @@ export const Contact = () => {
             <ContactCard 
                 icon={Phone} 
                 label="Phone" 
-                value="+91 85199 80985" 
+                value="+46 0733447685" 
                 href={SOCIAL_LINKS.phone}
             />
             <ContactCard 
@@ -94,7 +94,7 @@ export const Contact = () => {
 
           <div className="mt-6 sm:mt-8 md:mt-12 p-4 sm:p-6 border border-cyan-500/30 rounded-xl bg-cyan-500/5 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)] transition-shadow">
             <p className="text-cyan-400 font-rajdhani text-sm sm:text-base">
-              "Open to opportunities in Backend Engineering, DevOps, and Cloud Infrastructure. Ready to deploy."
+              "Open to opportunities in Backend Engineering, AI, and Cloud Infrastructure. Ready to deploy."
             </p>
           </div>
         </div>
