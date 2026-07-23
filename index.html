@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikhil Souri · AI Engineer & Researcher</title>
+  <meta name="description" content="Yalamati Nikhil Souri · AI & ML Engineer, Systems Programmer, and Researcher. Dual-degree CS student at BTH Sweden and JNTUA India. 9 publications, 7 internships.">
+  <meta property="og:title" content="Nikhil Souri · AI Engineer & Researcher">
+  <meta property="og:description" content="AI-powered systems, EEG-to-image research, and scalable backends.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- ══════════ PRELOADER ══════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo mono">YNS<span class="blink">_</span></div>
+      <div class="preloader-bar"><div class="preloader-progress" id="preloaderProgress"></div></div>
+      <div class="preloader-status mono" id="preloaderStatus">INITIALIZING NEURAL INTERFACE…</div>
+    </div>
+  </div>
+
+  <!-- ══════════ CUSTOM CURSOR ══════════ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ══════════ 3D BACKGROUND CANVAS ══════════ -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ══════════ SCROLL PROGRESS ══════════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ══════════ NAV ══════════ -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-logo mono">YNS<span class="accent">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#research" class="nav-link">Research</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <header class="hero" id="hero">
+    <div class="orb orb-1" data-depth="0.05"></div>
+    <div class="orb orb-2" data-depth="0.09"></div>
+    <div class="orb orb-3" data-depth="0.03"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow mono reveal-hero"><span class="pulse-dot"></span>AVAILABLE FOR OPPORTUNITIES · SWEDEN / INDIA / REMOTE</div>
+      <h1 class="hero-title">
+        <span class="hero-line reveal-hero">YALAMATI</span>
+        <span class="hero-line reveal-hero"><span class="hero-outline">NIKHIL</span></span>
+        <span class="hero-line reveal-hero">SOURI<span class="accent">.</span></span>
+      </h1>
+      <div class="hero-roles reveal-hero">
+        <span class="mono">&gt;</span>
+        <span id="roleTyper" class="mono role-typer"></span>
+        <span class="mono blink">▌</span>
+      </div>
+      <p class="hero-sub reveal-hero">Engineering intelligent systems at the intersection of <b>neural signals</b>, <b>machine learning</b>, and <b>distributed computing</b>. Recently completed my <b>A-graded thesis</b> on EEG-to-image generation at BTH, Sweden.</p>
+      <div class="hero-cta reveal-hero">
+        <a href="#research" class="btn btn-primary magnetic"><span>Explore Research</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost magnetic"><span>Get in Touch</span></a>
+      </div>
+      <div class="hero-stats reveal-hero">
+        <div class="hero-stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">Projects</span></div>
+        <div class="hero-stat"><span class="stat-num" data-count="7">0</span><span class="stat-label">Internships</span></div>
+        <div class="hero-stat"><span class="stat-num" data-count="2">0</span><span class="stat-label">Degrees</span></div>
+        <div class="hero-stat"><span class="stat-num" data-count="30">0</span><span class="stat-label">Certifications</span></div>
+      </div>
+    </div>
+
+    <!-- floating 3D terminal card fills the right side -->
+    <div class="hero-visual reveal-hero" aria-hidden="true">
+      <div class="hero-ring"></div>
+      <div class="hero-card tilt-card" data-tilt>
+        <div class="term-bar">
+          <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+          <span class="term-title mono">nikhil@bth: ~/research</span>
+        </div>
+        <div class="term-body mono" id="termBody"></div>
+      </div>
+    </div>
+
+    <a class="hero-scroll mono" href="#about" aria-label="Scroll to content">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </a>
+  </header>
+
+  <main>
+    <!-- ══════════ ABOUT ══════════ -->
+    <section class="section" id="about">
+      <div class="section-head">
+        <span class="section-index mono">01</span>
+        <h2 class="section-title" data-split>About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo-wrap tilt-card" data-tilt>
+          <div class="photo-frame">
+            <img src="assets/nikhil-1.jpg" alt="Nikhil Souri in Gothenburg, Sweden" class="about-photo" loading="lazy"
+                 onerror="this.parentElement.classList.add('photo-missing')">
+            <div class="photo-placeholder mono">DROP PHOTO<br>assets/nikhil-1.jpg</div>
+            <div class="photo-glare"></div>
+          </div>
+          <div class="photo-badge mono">📍 Karlskrona, Sweden</div>
+        </div>
+        <div class="about-text">
+          <p class="about-lead reveal">A dual-degree Computer Science student between <b>Blekinge Institute of Technology (Sweden)</b> and <b>JNTUA (India)</b>, building at the edge of what machines can perceive.</p>
+          <p class="reveal">I specialize in <b>systems programming, AI, and high-performance computing</b>. My work spans EEG-to-image generation with diffusion models, network fairness in real-time multiplayer systems, and federated retrieval-augmented pipelines, with papers accepted and under review at IEEE and ACM venues.</p>
+          <p class="reveal">Professionally, I've shipped AI-powered retail checkout systems in Stockholm, migrated enterprise SAP data at Accenture, and built full-stack platforms serving real users.</p>
+          <div class="about-tags reveal">
+            <span class="tag mono">EEG × Diffusion</span>
+            <span class="tag mono">RAG Systems</span>
+            <span class="tag mono">Distributed Systems</span>
+            <span class="tag mono">Computer Vision</span>
+            <span class="tag mono">Cloud & DevOps</span>
+          </div>
+          <div class="edu-cards reveal">
+            <div class="edu-card">
+              <span class="mono edu-years">2025-2026</span>
+              <h4>B.Sc. Computer Science</h4>
+              <p>Blekinge Institute of Technology<br><span class="edu-loc">Karlskrona, Sweden</span></p>
+            </div>
+            <div class="edu-card">
+              <span class="mono edu-years">2022-2026</span>
+              <h4>B.Tech CSE</h4>
+              <p>JNTU College of Engineering<br><span class="edu-loc">Anantapur, India</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ EXPERIENCE ══════════ -->
+    <section class="section" id="experience">
+      <div class="section-head">
+        <span class="section-index mono">02</span>
+        <h2 class="section-title" data-split>Experience</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-track"></div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card" data-tilt>
+            <div class="timeline-meta mono"><span class="timeline-date">NOV 2025 - APR 2026</span><span class="timeline-loc">Stockholm, Sweden</span></div>
+            <h3>AI R&D Engineer</h3>
+            <h4 class="accent">Taste of Nordic AB · ClearCart</h4>
+            <p>AI-powered automated retail checkout. Built multiview product recognition pipelines for real-time computer-vision detection and high-throughput backend workflows.</p>
+            <div class="timeline-more">
+              <ul class="tl-highlights">
+                <li>Multiview product recognition for real-time detection</li>
+                <li>Scalable backend architecture for high-throughput processing</li>
+                <li>Computer-vision pipelines deployed in a live retail context</li>
+              </ul>
+            </div>
+            <div class="card-tags"><span class="mono">Computer Vision</span><span class="mono">Python</span><span class="mono">Backend</span></div>
+            <button class="tl-toggle mono" aria-expanded="false">VIEW HIGHLIGHTS <span class="tl-chevron">+</span></button>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card" data-tilt>
+            <div class="timeline-meta mono"><span class="timeline-date">MAY - JUL 2025</span><span class="timeline-loc">Bangalore, India</span></div>
+            <h3>Package App Development Associate Intern</h3>
+            <h4 class="accent">Accenture India</h4>
+            <p>SAP data migration using RDL across enterprise systems. Designed ETL workflows, validation and defect analysis, documented migration pipelines for ERP transitions.</p>
+            <div class="timeline-more">
+              <ul class="tl-highlights">
+                <li>SAP data migration via RDL ensuring cross-system integrity</li>
+                <li>ETL workflow design with validation & defect analysis</li>
+                <li>Documented reliable ERP migration pipelines</li>
+              </ul>
+            </div>
+            <div class="card-tags"><span class="mono">SAP</span><span class="mono">ETL</span><span class="mono">Enterprise</span></div>
+            <div class="card-footer">
+              <button class="tl-toggle mono" aria-expanded="false">VIEW HIGHLIGHTS <span class="tl-chevron">+</span></button>
+              <a class="tl-cert mono" href="https://drive.google.com/file/d/1Lo5yoxQjmVzorTOT2-ejTRyn78dpQ4Lk/view" target="_blank" rel="noopener">CERTIFICATE ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card" data-tilt>
+            <div class="timeline-meta mono"><span class="timeline-date">APR - MAY 2025</span><span class="timeline-loc">Remote</span></div>
+            <h3>SDE Intern</h3>
+            <h4 class="accent">Bluestock Fintech</h4>
+            <p>Software development engineering in a fintech startup environment. Startup India registered, NISM certified organization.</p>
+            <div class="timeline-more">
+              <ul class="tl-highlights">
+                <li>SDE work at a Startup-India-registered fintech</li>
+                <li>Certificate No. BEENSD62950 (NISM-202400180448)</li>
+              </ul>
+            </div>
+            <div class="card-tags"><span class="mono">Fintech</span><span class="mono">SDE</span></div>
+            <div class="card-footer">
+              <button class="tl-toggle mono" aria-expanded="false">VIEW HIGHLIGHTS <span class="tl-chevron">+</span></button>
+              <a class="tl-cert mono" href="https://drive.google.com/file/d/1kHTtmHu39rSc2VHFd9NHzwYCjabo2WVm/view" target="_blank" rel="noopener">CERTIFICATE ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card" data-tilt>
+            <div class="timeline-meta mono"><span class="timeline-date">JAN 2023 - JAN 2024</span><span class="timeline-loc">Anantapur, India</span></div>
+            <h3>Intern Instructor</h3>
+            <h4 class="accent">TICT Computers</h4>
+            <p>Delivered technical training in programming and databases. Designed hands-on curriculum, mentored students for problem-solving and interview readiness.</p>
+            <div class="timeline-more">
+              <ul class="tl-highlights">
+                <li>Designed hands-on programming & database curriculum</li>
+                <li>Mentored students for interview readiness</li>
+                <li>Coordinated training programs with institutional partners</li>
+              </ul>
+            </div>
+            <div class="card-tags"><span class="mono">Teaching</span><span class="mono">Mentorship</span></div>
+            <div class="card-footer">
+              <button class="tl-toggle mono" aria-expanded="false">VIEW HIGHLIGHTS <span class="tl-chevron">+</span></button>
+              <a class="tl-cert mono" href="https://drive.google.com/file/d/1k2U7HqiVw3j8AwhY-E46eRICtQ0daTar/view" target="_blank" rel="noopener">CERTIFICATE ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card" data-tilt>
+            <div class="timeline-meta mono"><span class="timeline-date">DEC 2023 - FEB 2024</span><span class="timeline-loc">Remote</span></div>
+            <h3>Early Internships: Python & Web Dev</h3>
+            <h4 class="accent">CodeClause · Oasis Infobyte (AICTE) · VaultofCodes</h4>
+            <p>Python development and web development internships building foundational engineering discipline across three AICTE-recognized programs.</p>
+            <div class="timeline-more">
+              <ul class="tl-highlights">
+                <li>CodeClause: Python Development Intern (CC-CL72394)</li>
+                <li>Oasis Infobyte: AICTE OIB-SIP Python (OIB/D1/IP431)</li>
+                <li>VaultofCodes: Web Development Intern</li>
+              </ul>
+            </div>
+            <div class="card-tags"><span class="mono">Python</span><span class="mono">Web Dev</span><span class="mono">AICTE</span></div>
+            <div class="card-footer">
+              <button class="tl-toggle mono" aria-expanded="false">VIEW HIGHLIGHTS <span class="tl-chevron">+</span></button>
+              <a class="tl-cert mono" href="https://drive.google.com/file/d/1JeMbiC6ZWkjZNJaUxJC48rINbuuty0wM/view" target="_blank" rel="noopener">VAULT OF CODES ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ RESEARCH / PUBLICATIONS ══════════ -->
+    <section class="section" id="research">
+      <div class="section-head">
+        <span class="section-index mono">03</span>
+        <h2 class="section-title" data-split>Research & Publications</h2>
+      </div>
+      <p class="section-sub reveal">9 papers across IEEE and ACM venues, from neural decoding to federated systems.</p>
+
+      <div class="pub-filters reveal" id="pubFilters">
+        <button class="pub-filter active" data-filter="all">All <span class="filter-count mono">9</span></button>
+        <button class="pub-filter" data-filter="accepted">Accepted <span class="filter-count mono">2</span></button>
+        <button class="pub-filter" data-filter="published">Published <span class="filter-count mono">4</span></button>
+        <button class="pub-filter" data-filter="review">Under Review <span class="filter-count mono">3</span></button>
+      </div>
+
+      <div class="pub-grid" id="pubGrid">
+        <div class="pub-card featured tilt-card reveal" data-tilt data-status="accepted">
+          <div class="pub-status accepted mono">✦ FULL PAPER ACCEPTED</div>
+          <h3>FedRAG-Debt: Federated Retrieval-Augmented Profiling for Debt Collection</h3>
+          <div class="pub-venue mono">IEEE FMEC 2026 · Abu Dhabi, UAE</div>
+          <p>Federated learning meets RAG for privacy-preserving debt-collection profiling at the mobile edge.</p>
+        </div>
+
+        <div class="pub-card tilt-card reveal" data-tilt data-status="accepted">
+          <div class="pub-status accepted mono">✦ ACCEPTED</div>
+          <h3>Neuro-Symbolic Murmur Reasoner</h3>
+          <div class="pub-venue mono">IEEE IECS 2026</div>
+          <p>Neuro-symbolic reasoning for cardiac murmur interpretation.</p>
+        </div>
+
+        <div class="pub-card tilt-card reveal" data-tilt data-status="published">
+          <div class="pub-status published mono">● PUBLISHED</div>
+          <h3>EEG-Based Early Prediction of Cybersickness using ML & Explainable AI</h3>
+          <div class="pub-venue mono">AIJFR · 2026</div>
+          <p>Predicting VR cybersickness onset from EEG with interpretable models.</p>
+          <a class="pub-link mono" href="https://www.aijfr.com/research-paper.php?id=2763" target="_blank" rel="noopener">READ PAPER ↗</a>
+        </div>
+
+        <div class="pub-card tilt-card reveal" data-tilt data-status="published">
+          <div class="pub-status published mono">● PUBLISHED</div>
+          <h3>Blink-EAR: Cognitive Load Detection in Noisy Environments</h3>
+          <div class="pub-venue mono">Zenodo / BTH · Dec 2025</div>
+          <p>Eye-aspect-ratio based cognitive load detection robust to real-world noise.</p>
+          <a class="pub-link mono" href="https://zenodo.org/records/17683229" target="_blank" rel="noopener">READ PAPER ↗</a>
+        </div>
+
+        <div class="pub-card tilt-card reveal" data-tilt data-status="review">
+          <div class="pub-status review mono">◌ UNDER REVIEW</div>
+          <h3>SHARP: Memory-Augmented Semantic Retrieval for Stable EEG-to-Image Generation</h3>
+          <div class="pub-venue mono">ACM CIKM 2026</div>
+          <p>Extending DreamDiffusion with Hopfield semantic memory, with confidence-gated fusion stabilizes noisy EEG conditioning.</p>
+        </div>
+
+        <div class="pub-card tilt-card reveal" data-tilt data-status="review">
+          <div class="pub-status review mono">◌ UNDER REVIEW</div>
+          <h3>A Network Equalizer for Temporal Fairness in Online Multiplayer Game Systems</h3>
+          <div class="pub-venue mono">IEEE GEM 2026</div>
+          <p>Proxy-based bidirectional delay equalization, cutting inter-client skew cut from ~20ms to under 2ms.</p>
+        </div>
+
+        <div class="pub-card tilt-card reveal" data-tilt data-status="review">
+          <div class="pub-status review mono">◌ UNDER REVIEW</div>
+          <h3>Evidence-Bridged RAG for Multi-Hop Question Answering</h3>
+          <div class="pub-venue mono">IEEE FLLM 2026</div>
+          <p>Bridging evidence chains across retrieval hops for complex QA.</p>
+        </div>
+
+        <div class="pub-card tilt-card reveal" data-tilt data-status="published">
+          <div class="pub-status published mono">● PUBLISHED</div>
+          <h3>Text Classification Performance in NLP Using ML Techniques</h3>
+          <div class="pub-venue mono">NCSRINIET 2024 · Presented</div>
+          <p>Comparative study of ML techniques for NLP text classification. ISBN 978-81-19914-35-7.</p>
+          <a class="pub-link mono" href="https://drive.google.com/file/d/1q0qTA8XVnM37csSJDZa_yiAei4Y0UZsT/view" target="_blank" rel="noopener">READ PAPER ↗</a>
+        </div>
+
+        <div class="pub-card tilt-card reveal" data-tilt data-status="published">
+          <div class="pub-status published mono">● PUBLISHED</div>
+          <h3>The Transformative Impact of AI and ML</h3>
+          <div class="pub-venue mono">NCSRINIET 2024 Proceedings</div>
+          <p>Innovations, challenges and future directions across AI/ML domains.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PROJECTS ══════════ -->
+    <section class="section" id="projects">
+      <div class="section-head">
+        <span class="section-index mono">04</span>
+        <h2 class="section-title" data-split>Selected Projects</h2>
+      </div>
+      <div class="project-list">
+        <article class="project-row reveal">
+          <div class="project-num mono">P.01</div>
+          <div class="project-body">
+            <h3>SHARP: EEG-to-Image Generation</h3>
+            <p>Memory-augmented framework extending DreamDiffusion with Semantic Associative Retrieval Hopfield Memory. Semantic prototype retrieval in CLIP embedding space, confidence-gated fusion for noisy EEG. Validated on ImageNet-EEG & ThoughtViz.</p>
+            <div class="card-tags"><span class="mono">PyTorch</span><span class="mono">Diffusion</span><span class="mono">CLIP</span><span class="mono">Hopfield Networks</span></div>
+            <div class="project-links"><span class="proj-badge mono">ACM CIKM 2026 · Under Review</span></div>
+          </div>
+          <div class="project-visual" data-viz="brain">
+            <svg viewBox="0 0 220 220" aria-hidden="true">
+              <path class="eeg w1" d="M10 55 Q 22 25, 34 55 T 58 55 T 82 55 T 106 55 T 130 55 T 154 55 T 178 55 T 210 55" fill="none"/>
+              <path class="eeg w2" d="M10 110 Q 22 78, 34 110 T 58 110 T 82 110 T 106 110 T 130 110 T 154 110 T 178 110 T 210 110" fill="none"/>
+              <path class="eeg w3" d="M10 165 Q 22 140, 34 165 T 58 165 T 82 165 T 106 165 T 130 165 T 154 165 T 178 165 T 210 165" fill="none"/>
+              <circle class="eeg-node n1" cx="34" cy="55" r="4"/>
+              <circle class="eeg-node n2" cx="106" cy="110" r="4"/>
+              <circle class="eeg-node n3" cx="178" cy="165" r="4"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="project-row reveal">
+          <div class="project-num mono">P.02</div>
+          <div class="project-body">
+            <h3>Blink Detection in Noisy Environments</h3>
+            <p>Real-time EEG-based blink detection robust to acoustic and environmental noise; underpins the published Blink-EAR cognitive-load paper. Applicable to accessibility and safety-critical monitoring systems.</p>
+            <div class="card-tags"><span class="mono">EEG</span><span class="mono">Signal Processing</span><span class="mono">Real-time</span><span class="mono">Python</span></div>
+            <div class="project-links">
+              <a class="project-link mono" href="https://github.com/NIKHILSOURI/Blink-Detection-in-Noisy-Environments" target="_blank" rel="noopener">GITHUB ↗</a>
+            </div>
+          </div>
+          <div class="project-visual" data-viz="brain">
+            <svg viewBox="0 0 220 220" aria-hidden="true">
+              <path class="eeg w1" d="M10 55 Q 22 25, 34 55 T 58 55 T 82 55 T 106 55 T 130 55 T 154 55 T 178 55 T 210 55" fill="none"/>
+              <path class="eeg w2" d="M10 110 Q 22 78, 34 110 T 58 110 T 82 110 T 106 110 T 130 110 T 154 110 T 178 110 T 210 110" fill="none"/>
+              <path class="eeg w3" d="M10 165 Q 22 140, 34 165 T 58 165 T 82 165 T 106 165 T 130 165 T 154 165 T 178 165 T 210 165" fill="none"/>
+              <circle class="eeg-node n1" cx="34" cy="55" r="4"/>
+              <circle class="eeg-node n2" cx="106" cy="110" r="4"/>
+              <circle class="eeg-node n3" cx="178" cy="165" r="4"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="project-row reveal">
+          <div class="project-num mono">P.03</div>
+          <div class="project-body">
+            <h3>AI-Powered Queue Management & Crowd Flow</h3>
+            <p>Real-time computer-vision queue monitoring using YOLO / TensorFlow with Flask / FastAPI microservices, deployed on AWS EC2 for scalable crowd analytics and operational monitoring.</p>
+            <div class="card-tags"><span class="mono">YOLO</span><span class="mono">TensorFlow</span><span class="mono">FastAPI</span><span class="mono">AWS EC2</span></div>
+            <div class="project-links">
+              <a class="project-link mono" href="https://github.com/NIKHILSOURI/AI-Powered-Queue-Management" target="_blank" rel="noopener">GITHUB ↗</a>
+            </div>
+          </div>
+          <div class="project-visual" data-viz="network">
+            <svg viewBox="0 0 220 220" aria-hidden="true">
+              <line class="net-link" x1="35" y1="55" x2="110" y2="110"/>
+              <line class="net-link" x1="35" y1="165" x2="110" y2="110"/>
+              <line class="net-link" x1="185" y1="55" x2="110" y2="110"/>
+              <line class="net-link" x1="185" y1="165" x2="110" y2="110"/>
+              <circle class="net-node" cx="35" cy="55" r="7"/>
+              <circle class="net-node" cx="35" cy="165" r="7"/>
+              <circle class="net-node" cx="185" cy="55" r="7"/>
+              <circle class="net-node" cx="185" cy="165" r="7"/>
+              <circle class="net-hub" cx="110" cy="110" r="12"/>
+              <circle class="net-hub-pulse" cx="110" cy="110" r="12"/>
+              <circle class="packet pk1" r="4"/>
+              <circle class="packet pk2" r="4"/>
+              <circle class="packet pk3" r="4"/>
+              <circle class="packet pk4" r="4"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="project-row reveal">
+          <div class="project-num mono">P.04</div>
+          <div class="project-body">
+            <h3>Campus360: BTH Campus Navigator</h3>
+            <p>Interactive 360° campus navigation and information system for Blekinge Institute of Technology, enabling incoming students to virtually explore campus facilities.</p>
+            <div class="card-tags"><span class="mono">360° / WebGL</span><span class="mono">JavaScript</span><span class="mono">Maps</span></div>
+            <div class="project-links">
+              <a class="project-link mono" href="https://github.com/NIKHILSOURI/Campus360-BTH" target="_blank" rel="noopener">GITHUB ↗</a>
+            </div>
+          </div>
+          <div class="project-visual" data-viz="network">
+            <svg viewBox="0 0 220 220" aria-hidden="true">
+              <line class="net-link" x1="35" y1="55" x2="110" y2="110"/>
+              <line class="net-link" x1="35" y1="165" x2="110" y2="110"/>
+              <line class="net-link" x1="185" y1="55" x2="110" y2="110"/>
+              <line class="net-link" x1="185" y1="165" x2="110" y2="110"/>
+              <circle class="net-node" cx="35" cy="55" r="7"/>
+              <circle class="net-node" cx="35" cy="165" r="7"/>
+              <circle class="net-node" cx="185" cy="55" r="7"/>
+              <circle class="net-node" cx="185" cy="165" r="7"/>
+              <circle class="net-hub" cx="110" cy="110" r="12"/>
+              <circle class="net-hub-pulse" cx="110" cy="110" r="12"/>
+              <circle class="packet pk1" r="4"/>
+              <circle class="packet pk2" r="4"/>
+              <circle class="packet pk3" r="4"/>
+              <circle class="packet pk4" r="4"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="project-row reveal">
+          <div class="project-num mono">P.05</div>
+          <div class="project-body">
+            <h3>Network Equalizer for Multiplayer Fairness</h3>
+            <p>Proxy-based bidirectional delay equalization with adaptive hold-and-release scheduling, asymmetric one-way delay estimation, EMA smoothing, and multicast batching. <b class="accent">~20ms → &lt;2ms</b> inter-client skew.</p>
+            <div class="card-tags"><span class="mono">C</span><span class="mono">Networking</span><span class="mono">Real-time</span><span class="mono">Distributed</span></div>
+            <div class="project-links"><span class="proj-badge mono">IEEE GEM 2026 · Under Review</span></div>
+          </div>
+          <div class="project-visual" data-viz="network">
+            <svg viewBox="0 0 220 220" aria-hidden="true">
+              <line class="net-link" x1="35" y1="55" x2="110" y2="110"/>
+              <line class="net-link" x1="35" y1="165" x2="110" y2="110"/>
+              <line class="net-link" x1="185" y1="55" x2="110" y2="110"/>
+              <line class="net-link" x1="185" y1="165" x2="110" y2="110"/>
+              <circle class="net-node" cx="35" cy="55" r="7"/>
+              <circle class="net-node" cx="35" cy="165" r="7"/>
+              <circle class="net-node" cx="185" cy="55" r="7"/>
+              <circle class="net-node" cx="185" cy="165" r="7"/>
+              <circle class="net-hub" cx="110" cy="110" r="12"/>
+              <circle class="net-hub-pulse" cx="110" cy="110" r="12"/>
+              <circle class="packet pk1" r="4"/>
+              <circle class="packet pk2" r="4"/>
+              <circle class="packet pk3" r="4"/>
+              <circle class="packet pk4" r="4"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="project-row reveal">
+          <div class="project-num mono">P.06</div>
+          <div class="project-body">
+            <h3>Full-Stack Web Suite</h3>
+            <p>Production web applications built with Node.js, Express, MongoDB and modern frontends, with authentication, RBAC and optimized APIs. Five live deployments:</p>
+            <div class="project-links">
+              <a class="project-link mono" href="https://tictcomputers.onrender.com" target="_blank" rel="noopener">TICT COMPUTERS ↗</a>
+              <a class="project-link mono" href="https://ching-chong.netlify.app" target="_blank" rel="noopener">FRIENDS PAGE ↗</a>
+              <a class="project-link mono" href="https://collegeday2025.netlify.app" target="_blank" rel="noopener">COLLEGE FEST ↗</a>
+              <a class="project-link mono" href="https://race2k25.netlify.app" target="_blank" rel="noopener">TECH SYMPOSIUM ↗</a>
+              <a class="project-link mono" href="https://github.com/NIKHILSOURI/leave_system" target="_blank" rel="noopener">FACULTY LMS ↗</a>
+            </div>
+          </div>
+          <div class="project-visual" data-viz="stack">
+            <svg viewBox="0 0 220 220" aria-hidden="true">
+              <rect class="stack-layer sl1" x="50" y="42" width="120" height="28" rx="9"/>
+              <rect class="stack-layer sl2" x="50" y="96" width="120" height="28" rx="9"/>
+              <rect class="stack-layer sl3" x="50" y="150" width="120" height="28" rx="9"/>
+              <text class="stack-txt" x="110" y="60" text-anchor="middle">UI</text>
+              <text class="stack-txt" x="110" y="114" text-anchor="middle">API</text>
+              <text class="stack-txt" x="110" y="168" text-anchor="middle">DB</text>
+              <circle class="stack-dot" cx="110" r="4"/>
+            </svg>
+          </div>
+        </article>
+      </div>
+
+      <!-- Live GitHub repositories -->
+      <div class="gh-block">
+        <div class="gh-head">
+          <h3 class="gh-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.7.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            Live from GitHub
+          </h3>
+          <a class="gh-profile mono" href="https://github.com/NIKHILSOURI" target="_blank" rel="noopener">@NIKHILSOURI ↗</a>
+        </div>
+        <div class="gh-grid" id="ghRepos">
+          <div class="gh-loading mono">Fetching latest repositories…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ SKILLS ══════════ -->
+    <section class="section" id="skills">
+      <div class="section-head">
+        <span class="section-index mono">05</span>
+        <h2 class="section-title" data-split>Technical Arsenal</h2>
+      </div>
+
+      <!-- Interactive 3D cube -->
+      <div class="cube-stage reveal">
+        <div class="cube-scene" id="cubeScene">
+          <div class="cube" id="skillCube">
+            <div class="cube-face face-front"><span class="mono cube-label">AI / ML</span><p>PyTorch · CLIP<br>Diffusion · RAG</p></div>
+            <div class="cube-face face-back"><span class="mono cube-label">SYSTEMS</span><p>C · Linux<br>Distributed · OS</p></div>
+            <div class="cube-face face-right"><span class="mono cube-label">BACKEND</span><p>Node.js · FastAPI<br>Django · SQL</p></div>
+            <div class="cube-face face-left"><span class="mono cube-label">FRONTEND</span><p>React · Next.js<br>Three.js · GSAP</p></div>
+            <div class="cube-face face-top"><span class="mono cube-label">CLOUD</span><p>AWS · Azure<br>Jenkins · Git</p></div>
+            <div class="cube-face face-bottom"><span class="mono cube-label">RESEARCH</span><p>EEG · Signal<br>IEEE · ACM</p></div>
+          </div>
+        </div>
+        <div class="cube-hint mono"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20"/></svg> DRAG TO ROTATE · TAP A FACE</div>
+      </div>
+
+      <div class="bento">
+        <div class="bento-card span-2 tilt-card reveal" data-tilt>
+          <h4 class="mono bento-label">AI / ML</h4>
+          <div class="skill-chips">
+            <span>Transformers</span><span>LLM Apps</span><span>RAG</span><span>LangChain</span><span>PyTorch</span><span>Computer Vision</span><span>Signal Processing</span><span>Embeddings</span>
+          </div>
+        </div>
+        <div class="bento-card tilt-card reveal" data-tilt>
+          <h4 class="mono bento-label">Languages</h4>
+          <div class="skill-chips"><span>C</span><span>Python</span><span>JavaScript</span><span>SQL</span></div>
+        </div>
+        <div class="bento-card tilt-card reveal" data-tilt>
+          <h4 class="mono bento-label">Backend</h4>
+          <div class="skill-chips"><span>Node.js</span><span>FastAPI</span><span>Django</span><span>Express</span></div>
+        </div>
+        <div class="bento-card tilt-card reveal" data-tilt>
+          <h4 class="mono bento-label">Frontend</h4>
+          <div class="skill-chips"><span>React</span><span>Next.js</span><span>HTML5</span><span>CSS3</span></div>
+        </div>
+        <div class="bento-card tilt-card reveal" data-tilt>
+          <h4 class="mono bento-label">Cloud & DevOps</h4>
+          <div class="skill-chips"><span>AWS EC2/S3</span><span>Azure</span><span>Jenkins</span><span>Git</span><span>Linux</span></div>
+        </div>
+        <div class="bento-card span-2 tilt-card reveal" data-tilt>
+          <h4 class="mono bento-label">Core CS</h4>
+          <div class="skill-chips"><span>Algorithms</span><span>Data Structures</span><span>Operating Systems</span><span>Networking</span><span>Distributed Systems</span></div>
+        </div>
+      </div>
+
+      <!-- Certifications grid -->
+      <div class="cert-strip reveal">
+        <h4 class="mono bento-label" style="margin-bottom:1.4rem">CERTIFICATIONS · <span class="accent">tap to verify</span></h4>
+        <div class="cert-grid">
+          <a class="cert-card" href="https://learn.microsoft.com/api/credentials/share/en-gb/NIKHILSOURI-9400/D436DE7190BC4CEE" target="_blank" rel="noopener">
+            <div class="cert-card-head"><span class="cert-issuer mono">MICROSOFT</span><span class="cert-verify mono">VERIFY ↗</span></div>
+            <h5>Azure Administrator Associate (AZ-104)</h5>
+          </a>
+          <a class="cert-card" href="https://drive.google.com/file/d/1vgtoeWI_DTzXxjZKSu37TOjEkoQXIG3a/view" target="_blank" rel="noopener">
+            <div class="cert-card-head"><span class="cert-issuer mono">NPTEL · IIT KGP</span><span class="cert-verify mono">VERIFY ↗</span></div>
+            <h5>Cloud Computing (12 wks) · Elite Certificate</h5>
+          </a>
+          <a class="cert-card" href="https://courses.edx.org/certificates/732206084318488197932ef78df5d56a" target="_blank" rel="noopener">
+            <div class="cert-card-head"><span class="cert-issuer mono">STANFORD · edX</span><span class="cert-verify mono">VERIFY ↗</span></div>
+            <h5>Databases: Relational Databases & SQL</h5>
+          </a>
+          <a class="cert-card" href="https://courses.edx.org/certificates/a1cdf5a9047f45bd8178d3f55fe5e011" target="_blank" rel="noopener">
+            <div class="cert-card-head"><span class="cert-issuer mono">W3Cx · edX</span><span class="cert-verify mono">VERIFY ↗</span></div>
+            <h5>HTML5 and CSS Fundamentals</h5>
+          </a>
+          <a class="cert-card" href="https://drive.google.com/file/d/16tx-M7_r0Jl0rZES7XJSzkP1xbU0KuYq/view" target="_blank" rel="noopener">
+            <div class="cert-card-head"><span class="cert-issuer mono">INFOSYS</span><span class="cert-verify mono">VERIFY ↗</span></div>
+            <h5>Multidimensional Data Modeling</h5>
+          </a>
+          <a class="cert-card" href="https://drive.google.com/file/d/1x9EngoAjtyLAbFbbhhDQijmeFEYBCh84/view" target="_blank" rel="noopener">
+            <div class="cert-card-head"><span class="cert-issuer mono">COURSERA</span><span class="cert-verify mono">VERIFY ↗</span></div>
+            <h5>Learning Linux for LFCA</h5>
+          </a>
+          <a class="cert-card" href="https://drive.google.com/file/d/13Z-OykKTBioBJb27yKOyNc3TyKxBdsya/view" target="_blank" rel="noopener">
+            <div class="cert-card-head"><span class="cert-issuer mono">IBM · edX</span><span class="cert-verify mono">VERIFY ↗</span></div>
+            <h5>Python Basics for Data Science (PY0101EN)</h5>
+          </a>
+        </div>
+        <p class="cert-more mono">+ Skillsoft PL-300 Power BI track (×12), CISSP: Securing the SDLC, Ethical Hacker, Defining Cryptography &amp; Infosys Business Intelligence</p>
+      </div>
+    </section>
+
+    <!-- ══════════ BEYOND ══════════ -->
+    <section class="section" id="beyond">
+      <div class="section-head">
+        <span class="section-index mono">06</span>
+        <h2 class="section-title" data-split>Beyond the Code</h2>
+      </div>
+      <div class="beyond-grid">
+        <div class="beyond-photo-wrap tilt-card reveal" data-tilt>
+          <div class="photo-frame wide">
+            <img src="assets/nikhil-2.jpg" alt="Nikhil in the Swedish snow" class="about-photo" loading="lazy"
+                 onerror="this.parentElement.classList.add('photo-missing')">
+            <div class="photo-placeholder mono">DROP PHOTO<br>assets/nikhil-2.jpg</div>
+            <div class="photo-glare"></div>
+          </div>
+          <div class="photo-badge mono">❄ Karlskrona winters</div>
+        </div>
+        <div class="beyond-cards">
+          <div class="beyond-card reveal"><span class="mono accent">📷</span><div><h4>Photography Club Coordinator</h4><p>Led club operations at JNTUCEA: photoshoots, creative direction, visual storytelling.</p></div></div>
+          <div class="beyond-card reveal"><span class="mono accent">🏛</span><div><h4>NAAC Peer Review Team</h4><p>University Certificate of Appreciation for contributions to accreditation, 2023–24.</p></div></div>
+          <div class="beyond-card reveal"><span class="mono accent">⚙</span><div><h4>Technical Symposium Organiser</h4><p>Coordinated large-scale technical events: logistics, teams, execution.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CONTACT ══════════ -->
+    <section class="section contact" id="contact">
+      <div class="orb orb-4" data-depth="0.06"></div>
+      <div class="orb orb-5" data-depth="0.04"></div>
+      <div class="contact-inner">
+        <p class="mono contact-eyebrow reveal">// READY TO BUILD SOMETHING INTELLIGENT?</p>
+        <h2 class="contact-title reveal">Let's<br><span class="hero-outline">Connect.</span></h2>
+        <a href="mailto:mymedia.yns@gmail.com" class="contact-email magnetic reveal">mymedia.yns@gmail.com
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <div class="contact-links reveal">
+          <a href="https://www.linkedin.com/in/nikhil-souri/" target="_blank" rel="noopener" class="contact-link magnetic mono">LINKEDIN</a>
+          <a href="https://github.com/NIKHILSOURI" target="_blank" rel="noopener" class="contact-link magnetic mono">GITHUB</a>
+          <a href="tel:+918519980985" class="contact-link magnetic mono">+91 85199 80985</a>
+        </div>
+      </div>
+      <footer class="footer mono">
+        <span>© 2026 YALAMATI NIKHIL SOURI</span>
+        <span>DESIGNED & ENGINEERED WITH ◈ IN INDIA & SWEDEN</span>
+      </footer>
+    </section>
+  </main>
+
+  <!-- ══════════ PLAYGROUND DOCK ══════════ -->
+  <div class="dock" id="dock">
+    <button class="dock-btn" id="handToggle" aria-pressed="false" title="Hand gesture control (uses your camera, stays on your device)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v1"/><path d="M14 10V4a2 2 0 0 0-4 0v2"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+      <span class="dock-label">Hand Control</span>
+    </button>
+    <button class="dock-btn" id="drawToggle" title="Open the drawing studio">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+      <span class="dock-label">Draw</span>
+    </button>
+  </div>
+
+  <!-- hand-tracking camera preview -->
+  <div class="cam-preview" id="camPreview" hidden>
+    <video id="camVideo" playsinline muted></video>
+    <canvas id="handCanvas"></canvas>
+    <div class="cam-status mono"><span class="cam-dot"></span><span id="camStatusText">STARTING…</span></div>
+    <button class="cam-close" id="camClose" aria-label="Stop hand tracking">✕</button>
+  </div>
+
+  <!-- floating air controls (shown when hand tracking active) -->
+  <div class="air-controls" id="airControls" hidden>
+    <div class="air-ring" id="airCursor"></div>
+    <div class="air-trail" id="airTrail"></div>
+    <div class="air-hud" id="airHud">
+      <div class="air-hud-title mono">GESTURE CONTROLS</div>
+      <div class="air-hud-item" data-gesture="open">
+        <span class="air-icon">&#9995;</span>
+        <div class="air-info"><span class="air-label mono">OPEN HAND</span><span class="air-desc">Move cursor, hover elements</span></div>
+      </div>
+      <div class="air-hud-item" data-gesture="pinch">
+        <span class="air-icon">&#129295;</span>
+        <div class="air-info"><span class="air-label mono">PINCH</span><span class="air-desc">Click anything</span></div>
+      </div>
+      <div class="air-hud-item" data-gesture="fist">
+        <span class="air-icon">&#9994;</span>
+        <div class="air-info"><span class="air-label mono">FIST</span><span class="air-desc">Particle shockwave blast</span></div>
+      </div>
+      <div class="air-hud-item" data-gesture="point">
+        <span class="air-icon">&#9757;</span>
+        <div class="air-info"><span class="air-label mono">POINT</span><span class="air-desc">Precision cursor</span></div>
+      </div>
+      <div class="air-hud-hint mono">EDGE SCROLL: move cursor to top/bottom</div>
+    </div>
+  </div>
+
+  <!-- ══════════ DRAWING STUDIO ══════════ -->
+  <div class="draw-modal" id="drawModal" hidden>
+    <div class="draw-backdrop" id="drawBackdrop"></div>
+    <div class="draw-panel" role="dialog" aria-label="Drawing studio">
+      <div class="draw-head">
+        <h3 class="mono">DRAWING STUDIO<span class="accent">.</span></h3>
+        <button class="draw-x" id="drawClose" aria-label="Close">✕</button>
+      </div>
+      <div class="draw-tools">
+        <div class="tool-group swatches" id="swatches"></div>
+        <label class="tool-group color-pick">
+          <span class="mono tool-lbl">CUSTOM</span>
+          <input type="color" id="colorInput" value="#7c6cff">
+        </label>
+        <label class="tool-group">
+          <span class="mono tool-lbl">SIZE</span>
+          <input type="range" id="sizeInput" min="1" max="48" value="6">
+          <span class="mono size-val" id="sizeVal">6</span>
+        </label>
+        <button class="tool-btn" id="brushBtn" data-active="true" title="Brush">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+          <span>Brush</span>
+        </button>
+        <button class="tool-btn" id="eraserBtn" title="Eraser">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20H7L3 16a2 2 0 0 1 0-3l9-9a2 2 0 0 1 3 0l5 5a2 2 0 0 1 0 3l-7 7"/></svg>
+          <span>Eraser</span>
+        </button>
+        <button class="tool-btn" id="undoBtn" title="Undo">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M3 13a9 9 0 1 0 3-7.7L3 8"/></svg>
+          <span>Undo</span>
+        </button>
+        <button class="tool-btn danger" id="clearBtn" title="Clear canvas">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+          <span>Clear</span>
+        </button>
+      </div>
+      <div class="draw-canvas-wrap">
+        <canvas id="drawCanvas"></canvas>
+      </div>
+      <div class="draw-actions">
+        <button class="btn btn-ghost" id="downloadBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span>Download PNG</span>
+        </button>
+        <button class="btn btn-primary" id="sendBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <span>Send to Nikhil</span>
+        </button>
+      </div>
+      <p class="draw-hint mono" id="drawHint">Tip: Draw something, then Download saves a PNG. "Send to Nikhil" saves it and opens your mail app.</p>
+    </div>
+  </div>
+
+  <!-- toast -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
